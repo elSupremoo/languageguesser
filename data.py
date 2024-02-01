@@ -1,3 +1,9 @@
+"""
+This dictionary contains top 50 languages in wikiedia with their abbr.
+I used this to choose a random language and retrieve a wikipedia page in it.
+Feel free to add or remove languages to your liking to suit your needs.
+"""
+
 languages_dict = {
     "en": "English",
     "ne": "Nepali",
@@ -50,6 +56,10 @@ languages_dict = {
     "ta": "Tamil"
 }
 
+"""
+Same thing but just the abbreviations. Whatever language you add up there, you must also
+add here for the game to work properly.                                                                                                         
+"""
 languages = [
     "en",
     "ne",
