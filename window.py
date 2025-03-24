@@ -40,11 +40,11 @@ content.set(current_phrase)
 correct_answer.set('The correct answer will appear here!')
 
 # creating a Lable object to display the question in the window
-text = ttk.Label(main_frame, textvariable=content)
+text = ttk.Label(main_frame, textvariable=content, foreground='#2c3e50')  # Dark blue-gray color
 text.pack()
 
 # creating a Lable object to display the correct answer in the window
-correct_answer_box = ttk.Label(main_frame, textvariable=correct_answer)
+correct_answer_box = ttk.Label(main_frame, textvariable=correct_answer, foreground='#27ae60')  # Green color
 correct_answer_box.pack()
 
 # counter to keep track of current score
@@ -67,6 +67,7 @@ def change_lang():
 
     # getting the full answer from data dict
     correct_answer.set('It was '+ languages_dict[current_lang])
+    correct_answer_box.configure(foreground='#e74c3c')  # Red color for incorrect
 
     # clearing the answer box for the next question, the aruguemts mean clear everything
     answer_box.delete(0, END)
@@ -74,6 +75,8 @@ def change_lang():
     # checking if the users answer is correct
     if user_answer.lower() in languages_dict[current_lang].lower():
         score.set(score.get() + 1)
+        correct_answer.set('Correct! It was indeed '+ languages_dict[current_lang])
+        correct_answer_box.configure(foreground='#27ae60')  # Green color for correct
 
     # gets the new set of question and answer
     current_values = get_page()
